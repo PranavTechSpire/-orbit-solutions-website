@@ -59,20 +59,44 @@ export default function Navbar({ onContactClick }: { onContactClick: () => void 
         
         {/* Left Side: Logo */}
         <div className="flex items-center gap-3 cursor-pointer group" onClick={() => scrollTo(0)}>
-          <div className="w-10 h-10 rounded-full border-2 border-cyan-400 shadow-[0_0_15px_#06b6d4] flex items-center justify-center transition-transform group-hover:scale-110">
-            <div className="w-2.5 h-2.5 bg-violet-400 rounded-full shadow-[0_0_10px_#8b5cf6]"></div>
-          </div>
-          <span className="text-xl md:text-2xl font-bold tracking-widest text-white/90 uppercase glow-text-cyan">
-            Orbit Solutions
-          </span>
+          <img 
+            src="/logo.png" 
+            alt="Orbit Solutions" 
+            className="h-12 md:h-16 w-auto object-contain transition-transform duration-500 group-hover:scale-105" 
+          />
         </div>
 
         {/* Right Side: Links & CTA */}
         <div className="hidden lg:flex items-center gap-10">
-          {/* Index 1 Center = 1.5 / 11 = 0.1363 */}
-          <button onClick={() => scrollTo(0.1363)} className="text-sm font-medium uppercase tracking-widest text-white/60 hover:text-cyan-400 transition-colors">
-            Services
-          </button>
+          {/* Services Dropdown */}
+          <div className="relative group">
+            <button className="text-sm font-medium uppercase tracking-widest text-white/60 group-hover:text-cyan-400 transition-colors py-2 flex items-center gap-1">
+              Services
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="mt-0.5 opacity-50"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div className="absolute top-full left-0 mt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+              <div className="bg-[#080a10]/95 backdrop-blur-xl border border-white/10 rounded-xl p-2 shadow-[0_8px_32px_rgba(0,0,0,0.5)] flex flex-col gap-1">
+                {[
+                  { name: 'Web Dev', target: 0.1363 },
+                  { name: 'Mobile Apps', target: 0.2272 },
+                  { name: 'Graphics', target: 0.3181 },
+                  { name: 'Digital Mkt', target: 0.4090 },
+                  { name: 'Social Media', target: 0.5000 },
+                  { name: 'WhatsApp Auto', target: 0.5909 },
+                  { name: 'Enterprise SW', target: 0.6818 },
+                  { name: 'AI Assistants', target: 0.7727 }
+                ].map(service => (
+                  <button 
+                    key={service.name}
+                    onClick={() => scrollTo(service.target)} 
+                    className="text-left px-4 py-2 text-xs font-medium uppercase tracking-widest text-white/60 hover:text-cyan-400 hover:bg-white/5 rounded-lg transition-colors"
+                  >
+                    {service.name}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
           {/* Index 9 Center = 9.5 / 11 = 0.8636 */}
           <button onClick={() => scrollTo(0.8636)} className="text-sm font-medium uppercase tracking-widest text-white/60 hover:text-cyan-400 transition-colors">
             Why Us

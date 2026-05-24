@@ -1,14 +1,16 @@
 "use client";
 
-import { Hexagon, Triangle, Square, Circle, Cloud, Star } from "lucide-react";
+import { Hexagon, Triangle, Square, Circle, Cloud, Star, Command, Zap } from "lucide-react";
 
 const CLIENTS = [
-  { name: "Nexus Data", icon: Hexagon },
-  { name: "Quantum Innovations", icon: Triangle },
-  { name: "AeroTech", icon: Circle },
-  { name: "Vertex Solutions", icon: Square },
-  { name: "CloudSync", icon: Cloud },
-  { name: "Stellar Dynamics", icon: Star },
+  { name: "RamXR", icon: Hexagon },
+  { name: "Intellobyte", icon: Triangle },
+  { name: "Reddy Arts & Media", icon: Circle },
+  { name: "Tenon", icon: Square },
+  { name: "Brainster Studio", icon: Cloud },
+  { name: "Warnwrite", icon: Star },
+  { name: "Strox Media", icon: Command },
+  { name: "API Community", icon: Zap },
 ];
 
 export default function TrustedClients() {

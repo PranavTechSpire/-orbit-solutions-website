@@ -9,12 +9,11 @@ export default function Footer() {
           {/* Brand Col */}
           <div className="col-span-1 lg:col-span-1">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 rounded-full border border-cyan-400 shadow-[0_0_10px_#06b6d4] flex items-center justify-center">
-                <div className="w-2 h-2 bg-violet-400 rounded-full shadow-[0_0_10px_#8b5cf6]"></div>
-              </div>
-              <span className="text-xl font-bold tracking-widest text-white uppercase glow-text-cyan">
-                Orbit Solutions
-              </span>
+              <img 
+                src="/logo.png" 
+                alt="Orbit Solutions" 
+                className="h-12 md:h-16 w-auto object-contain" 
+              />
             </div>
             <p className="text-white/50 font-light leading-relaxed mb-8 pr-4">
               Transforming ideas into powerful products. We combine creativity, technology, and strategy to drive meaningful results for your business.
@@ -26,7 +25,7 @@ export default function Footer() {
               <a href="#" className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-white/50 hover:text-cyan-400 hover:bg-white/10 transition-all border border-white/10 hover:border-cyan-400/50 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
               </a>
-              <a href="mailto:hello@orbitsolutions.com" className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-white/50 hover:text-cyan-400 hover:bg-white/10 transition-all border border-white/10 hover:border-cyan-400/50 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)]">
+              <a href="mailto:support.orbitservices@gmail.com" className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-white/50 hover:text-cyan-400 hover:bg-white/10 transition-all border border-white/10 hover:border-cyan-400/50 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)]">
                 <Mail size={20} />
               </a>
             </div>

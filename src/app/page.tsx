@@ -63,7 +63,8 @@ function Beat({
   subtitle, 
   align = 'left',
   isButton = false,
-  onClick
+  onClick,
+  id
 }: { 
   progress: MotionValue<number>, 
   range: [number, number], 
@@ -71,7 +72,8 @@ function Beat({
   subtitle: string,
   align?: 'left' | 'right',
   isButton?: boolean,
-  onClick?: () => void
+  onClick?: () => void,
+  id?: string
 }) {
   const [start, end] = range;
   const fade = 0.02; // Adjusted for 11 sections so it doesn't overlap
@@ -102,6 +104,7 @@ function Beat({
 
   return (
     <motion.div 
+      id={id}
       style={{ opacity, y }}
       className={`fixed inset-0 flex flex-col justify-end pb-6 md:pb-12 lg:pb-16 pointer-events-none z-40 w-full ${alignClass}`}
     >
@@ -161,6 +164,7 @@ export default function Home() {
           return (
             <Beat 
               key={index}
+              id={beat.title.toLowerCase().replace(/ /g, '-')}
               progress={smoothProgress}
               range={[start === 0 ? 0 : start, end]}
               title={beat.title}
