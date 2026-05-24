@@ -6,6 +6,7 @@ import OrbitalEcosystem from '@/components/OrbitalEcosystem';
 import ContactModal from '@/components/ContactModal';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import TrustedClients from '@/components/TrustedClients';
 
 const BEATS_DATA = [
   {
@@ -172,6 +173,7 @@ export default function Home() {
         })}
       </div>
       
+      <TrustedClients />
       <Footer />
       <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </main>

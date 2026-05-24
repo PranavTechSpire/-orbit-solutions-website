@@ -16,11 +16,11 @@
 
 @layer utilities {
   .glass-panel {
-    @apply bg-[#080a10]/60 backdrop-blur-2xl border border-white/20 rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)];
+    @apply bg-[#080a10]/40 backdrop-blur-[32px] border border-white/20 rounded-[2rem] shadow-[0_16px_40px_rgba(0,0,0,0.5)];
   }
   
   .glow-text-cyan {
-    text-shadow: 0 0 10px rgba(6, 182, 212, 0.7), 0 0 20px rgba(6, 182, 212, 0.5);
+    text-shadow: 0 0 20px rgba(6, 182, 212, 0.4), 0 0 40px rgba(6, 182, 212, 0.2);
   }
   
   .glow-text-violet {
@@ -28,7 +28,7 @@
   }
 
   .glow-ring-cyan {
-    box-shadow: 0 0 20px rgba(6, 182, 212, 0.3), inset 0 0 20px rgba(6, 182, 212, 0.3);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.2), inset 0 0 20px rgba(6, 182, 212, 0.1);
   }
 
   .glow-ring-violet {
@@ -52,4 +52,13 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(6, 182, 212, 0.8);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
 }

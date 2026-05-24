@@ -11,10 +11,20 @@ export default function Navbar({ onContactClick }: { onContactClick: () => void 
     setIsScrolled(latest > 50);
   });
 
-  const scrollTo = (percentage: number) => {
-    const totalScroll = document.body.scrollHeight - window.innerHeight;
-    const targetY = totalScroll * percentage;
+  const scrollTo = (target: number | string) => {
+    let targetY = 0;
     const startY = window.scrollY;
+
+    if (typeof target === 'number') {
+      const totalScroll = document.body.scrollHeight - window.innerHeight;
+      targetY = totalScroll * target;
+    } else {
+      const el = document.getElementById(target);
+      if (el) {
+        targetY = el.getBoundingClientRect().top + window.scrollY - 100; // Offset for navbar
+      } else return;
+    }
+
     const distance = targetY - startY;
     const duration = 1500; // 1.5 seconds for a slow, elegant, premium glide
     let startTimestamp: number | null = null;
@@ -66,6 +76,9 @@ export default function Navbar({ onContactClick }: { onContactClick: () => void 
           {/* Index 9 Center = 9.5 / 11 = 0.8636 */}
           <button onClick={() => scrollTo(0.8636)} className="text-sm font-medium uppercase tracking-widest text-white/60 hover:text-cyan-400 transition-colors">
             Why Us
+          </button>
+          <button onClick={() => scrollTo('clients')} className="text-sm font-medium uppercase tracking-widest text-white/60 hover:text-cyan-400 transition-colors">
+            Clients
           </button>
           <button onClick={() => scrollTo(0)} className="text-sm font-medium uppercase tracking-widest text-white/60 hover:text-cyan-400 transition-colors">
             About
