@@ -60,7 +60,7 @@ export default function Navbar({ onContactClick }: { onContactClick: () => void 
         {/* Left Side: Logo */}
         <div className="flex items-center gap-3 cursor-pointer group" onClick={() => scrollTo(0)}>
           <img 
-            src="/logo.png" 
+            src="/favicon.ico" 
             alt="Orbit Solutions" 
             className="h-12 md:h-16 w-auto object-contain transition-transform duration-500 group-hover:scale-105" 
           />
