@@ -25,7 +25,7 @@ export default function ContactModal({ isOpen, onClose }: { isOpen: boolean, onC
             </button>
             
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 glow-text-cyan">Start Your Project</h3>
-            <p className="text-blue-100/60 mb-6">Tell us about your project and we'll get back to you shortly.</p>
+            <p className="text-blue-100/60 mb-6">Tell us about your project and we&apos;ll get back to you shortly.</p>
             
             <form className="space-y-4" onSubmit={e => e.preventDefault()}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
