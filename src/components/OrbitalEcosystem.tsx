@@ -14,20 +14,27 @@ export default function OrbitalEcosystem({ smoothProgress }: { smoothProgress: M
   useEffect(() => {
     let isMounted = true;
     const loadImages = async () => {
-      const loadedImages: HTMLImageElement[] = [];
+      const promises = [];
+      const loadedImages: HTMLImageElement[] = new Array(FRAME_COUNT);
+      
       for (let i = 0; i < FRAME_COUNT; i++) {
-        if (!isMounted) break;
-        const img = new Image();
-        img.src = currentFrame(i);
-        await new Promise((resolve) => {
+        const promise = new Promise((resolve) => {
+          const img = new Image();
+          img.src = currentFrame(i);
           img.onload = () => {
             if (isMounted) setLoaded((prev) => prev + 1);
+            loadedImages[i] = img;
             resolve(null);
           };
-          img.onerror = () => resolve(null); // handle missing gracefully
+          img.onerror = () => {
+            loadedImages[i] = img;
+            resolve(null);
+          };
         });
-        loadedImages.push(img);
+        promises.push(promise);
       }
+      
+      await Promise.all(promises);
       if (isMounted) setImages(loadedImages);
     };
     loadImages();
